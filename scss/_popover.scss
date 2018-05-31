@@ -1,10 +1,11 @@
 .popover {
+  writing-mode: vertical-lr;
   position: absolute;
   top: 0;
   left: 0;
   z-index: $zindex-popover;
   display: block;
-  max-width: $popover-max-width;
+  max-height: $popover-max-width;
   // Our parent element can be arbitrary since tooltips are by default inserted as a sibling of their target element.
   // So reset our font and text properties to avoid inheriting weird values.
   @include reset-text();

@@ -8,11 +8,13 @@
   // display: block;
   // width: 100%;
   display: table-cell;
+  // writing-mode: vertical-lr;
+  @include writing-mode(vertical-lr);
   height: 100%;
   padding: $input-padding-y $input-padding-x;
   font-size: $font-size-base;
   line-height: $input-line-height;
-  color: $input-color;
+  color: #495057;
   background-color: $input-bg;
   background-clip: padding-box;
   border: $input-border-width solid $input-border-color;
@@ -28,6 +30,7 @@
 
   @include box-shadow($input-box-shadow);
   @include transition($input-transition);
+  @include resizable(horizontal);
 
   // Unstyle the caret on `<select>`s in IE10+.
   &::-ms-expand {
@@ -60,7 +63,7 @@
 
 select.form-control {
   &:not([size]):not([multiple]) {
-    height: $input-height;
+    width: $input-height;
   }
 
   &:focus::-ms-value {
@@ -89,23 +92,23 @@ select.form-control {
 // For use with horizontal and inline forms, when you need the label (or legend)
 // text to align with the form controls.
 .col-form-label {
-  padding-top: calc(#{$input-padding-y} + #{$input-border-width});
-  padding-bottom: calc(#{$input-padding-y} + #{$input-border-width});
-  margin-bottom: 0; // Override the `<label>/<legend>` default
+  padding-right: calc(#{$input-padding-y} + #{$input-border-width});
+  padding-left: calc(#{$input-padding-y} + #{$input-border-width});
+  margin-right: 0; // Override the `<label>/<legend>` default
   font-size: inherit; // Override the `<legend>` default
   line-height: $input-line-height;
 }
 
 .col-form-label-lg {
-  padding-top: calc(#{$input-padding-y-lg} + #{$input-border-width});
-  padding-bottom: calc(#{$input-padding-y-lg} + #{$input-border-width});
+  padding-right: calc(#{$input-padding-y-lg} + #{$input-border-width});
+  padding-left: calc(#{$input-padding-y-lg} + #{$input-border-width});
   font-size: $font-size-lg;
   line-height: $input-line-height-lg;
 }
 
 .col-form-label-sm {
-  padding-top: calc(#{$input-padding-y-sm} + #{$input-border-width});
-  padding-bottom: calc(#{$input-padding-y-sm} + #{$input-border-width});
+  padding-right: calc(#{$input-padding-y-sm} + #{$input-border-width});
+  padding-left: calc(#{$input-padding-y-sm} + #{$input-border-width});
   font-size: $font-size-sm;
   line-height: $input-line-height-sm;
 }
@@ -117,10 +120,10 @@ select.form-control {
 // text (without any border, background color, focus indicator)
 
 .form-control-plaintext {
-  display: block;
+  display: table-cell;
   width: 100%;
-  padding-top: $input-padding-y;
-  padding-bottom: $input-padding-y;
+  padding-right: $input-padding-y;
+  padding-left: $input-padding-y;
   margin-bottom: 0; // match inputs if this class comes on inputs with default margins
   line-height: $input-line-height;
   background-color: transparent;
@@ -152,7 +155,7 @@ select.form-control {
 
 select.form-control-sm {
   &:not([size]):not([multiple]) {
-    height: $input-height-sm;
+    width: $input-height-sm;
   }
 }
 
@@ -165,7 +168,7 @@ select.form-control-sm {
 
 select.form-control-lg {
   &:not([size]):not([multiple]) {
-    height: $input-height-lg;
+    width: $input-height-lg;
   }
 }
 
@@ -192,13 +195,14 @@ select.form-control-lg {
 .form-row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -5px;
-  margin-left: -5px;
+  margin-top: -5px;
+  margin-bottom: -5px;
 
   > .col,
   > [class*="col-"] {
-    padding-right: 5px;
-    padding-left: 5px;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
   }
 }
 
@@ -215,8 +219,8 @@ select.form-control-lg {
 
 .form-check-input {
   position: absolute;
-  margin-top: $form-check-input-margin-y;
-  margin-left: -$form-check-input-gutter;
+  // margin-top: $form-check-input-margin-y;
+  margin-left: -$form-check-input-gutter-add;
 
   &:disabled ~ .form-check-label {
     color: $text-muted;
@@ -281,6 +285,9 @@ select.form-control-lg {
       align-items: center;
       justify-content: center;
       margin-bottom: 0;
+      @media screen and (min-width: 576px) {
+        margin-right: 0;
+      }
     }
 
     // Inline-block all the things for "inline"
@@ -289,19 +296,23 @@ select.form-control-lg {
       flex: 0 0 auto;
       flex-flow: row wrap;
       align-items: center;
-      margin-bottom: 0;
+      margin-right: 0;
     }
 
     // Allow folks to *not* use `.form-group`
     .form-control {
-      display: inline-block;
+      display: table-cell;
       width: auto; // Prevent labels from stacking above inputs in `.form-group`
       vertical-align: middle;
+      @media screen and (min-width: 576px) {
+        display: table-cell;
+        height: auto;
+      }
     }
 
     // Make static controls behave like regular ones
     .form-control-plaintext {
-      display: inline-block;
+      display: table-cell;
     }
 
     .input-group {
@@ -332,4 +343,8 @@ select.form-control-lg {
       margin-bottom: 0;
     }
   }
+}
+
+.mn{
+  @include writing-mode(vertical-lr);
 }

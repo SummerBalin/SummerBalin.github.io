@@ -21,7 +21,7 @@
   flex-wrap: wrap; // allow us to do the line break for collapsing content
   align-items: center;
   justify-content: space-between; // space out brand from logo
-  padding: $navbar-padding-y $navbar-padding-x;
+  padding: $navbar-padding-x $navbar-padding-y;
 
   // Because flex properties aren't inherited, we need to redeclare these first
   // few properities so that content nested within behave properly.
@@ -41,9 +41,9 @@
 
 .navbar-brand {
   display: inline-block;
-  padding-top: $navbar-brand-padding-y;
-  padding-bottom: $navbar-brand-padding-y;
-  margin-right: $navbar-padding-x;
+  padding-right: $navbar-brand-padding-y;
+  padding-left: $navbar-brand-padding-y;
+  margin-bottom: $navbar-padding-x;
   font-size: $navbar-brand-font-size;
   line-height: inherit;
   white-space: nowrap;
@@ -62,7 +62,8 @@
   display: flex;
   flex-direction: column; // cannot use `inherit` to get the `.navbar`s value
   padding-left: 0;
-  margin-bottom: 0;
+  // margin-bottom: 0;
+  margin: 0;
   list-style: none;
 
   .nav-link {
@@ -168,8 +169,8 @@
           }
 
           .nav-link {
-            padding-right: $navbar-nav-link-padding-x;
-            padding-left: $navbar-nav-link-padding-x;
+            padding-top: $navbar-nav-link-padding-x;
+            padding-bottom: $navbar-nav-link-padding-x;
           }
         }
 

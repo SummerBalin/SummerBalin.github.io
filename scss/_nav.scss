@@ -6,14 +6,16 @@
 .nav {
   display: flex;
   flex-wrap: wrap;
-  padding-left: 0;
-  margin-bottom: 0;
+  // padding-left: 0;
+  // margin-bottom: 0;
+  padding: 0;
+  margin: 0;
   list-style: none;
 }
 
 .nav-link {
   display: block;
-  padding: $nav-link-padding-y $nav-link-padding-x;
+  padding: $nav-link-padding-x $nav-link-padding-y;
 
   @include hover-focus {
     text-decoration: none;
@@ -30,15 +32,15 @@
 //
 
 .nav-tabs {
-  border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+  border-right: $nav-tabs-border-width solid $nav-tabs-border-color;
 
   .nav-item {
-    margin-bottom: -$nav-tabs-border-width;
+    margin-right: -$nav-tabs-border-width;
   }
 
   .nav-link {
     border: $nav-tabs-border-width solid transparent;
-    @include border-top-radius($nav-tabs-border-radius);
+    @include border-left-radius($nav-tabs-border-radius);
 
     @include hover-focus {
       border-color: $nav-tabs-link-hover-border-color;

@@ -15,3 +15,7 @@
   white-space: normal;
   line-break: auto;
 }
+
+@mixin writing-mode($direaction){
+  writing-mode: $direaction;
+}

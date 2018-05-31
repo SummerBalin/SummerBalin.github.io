@@ -55,7 +55,7 @@ Bootstrap primarily uses the following media query ranges—or breakpoints—in 
 // No media query since this is the default in Bootstrap
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
+@media (min-height: 576px) { ... }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) { ... }

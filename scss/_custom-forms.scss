@@ -11,7 +11,7 @@
   position: relative;
   display: block;
   min-height: (1rem * $line-height-base);
-  padding-left: $custom-control-gutter;
+  padding-top: $custom-control-gutter;
 }
 
 .custom-control-inline {
@@ -63,7 +63,7 @@
   &::before {
     position: absolute;
     top: (($line-height-base - $custom-control-indicator-size) / 2);
-    left: 0;
+    left: 3px;
     display: block;
     width: $custom-control-indicator-size;
     height: $custom-control-indicator-size;
@@ -78,7 +78,7 @@
   &::after {
     position: absolute;
     top: (($line-height-base - $custom-control-indicator-size) / 2);
-    left: 0;
+    left: 3px;
     display: block;
     width: $custom-control-indicator-size;
     height: $custom-control-indicator-size;
@@ -161,9 +161,12 @@
 //
 
 .custom-select {
-  display: inline-block;
-  width: 100%;
-  height: $custom-select-height;
+  // display: inline-block;
+  display: table-cell;
+  // width: 100%;
+  width: $custom-select-height;
+  height: 100%;
+  // height: $custom-select-height;
   padding: $custom-select-padding-y ($custom-select-padding-x + $custom-select-indicator-padding) $custom-select-padding-y $custom-select-padding-x;
   line-height: $custom-select-line-height;
   color: $custom-select-color;

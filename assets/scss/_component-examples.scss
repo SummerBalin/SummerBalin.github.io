@@ -115,8 +115,9 @@
 //
 
 .bd-example {
-  writing-mode: vertical-lr;  //=========
+  @include writing-mode(vertical-lr);
   position: relative;
+  min-height: 500px;
   padding: 1rem;
   margin: 1rem (-$grid-gutter-width / 2) 0;
   border: solid $gray-100;
@@ -154,7 +155,7 @@
 
   > .form-control {
     + .form-control {
-      margin-top: .5rem;
+      margin-left: .5rem;
     }
   }
 
@@ -222,8 +223,8 @@
 // Buttons
 .bd-example {
   > .btn-group {
-    margin-top: .25rem;
-    margin-bottom: .25rem;
+    margin-right: .25rem;
+    margin-left: .25rem;
   }
   > .btn-toolbar + .btn-toolbar {
     margin-top: .5rem;

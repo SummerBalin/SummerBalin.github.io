@@ -12,38 +12,38 @@
         .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
         .#{$abbrev}t#{$infix}-#{$size},
         .#{$abbrev}y#{$infix}-#{$size} {
-          #{$prop}-top: $length !important;
+          #{$prop}-right: $length !important;
         }
         .#{$abbrev}r#{$infix}-#{$size},
         .#{$abbrev}x#{$infix}-#{$size} {
-          #{$prop}-right: $length !important;
+          #{$prop}-bottom: $length !important;
         }
         .#{$abbrev}b#{$infix}-#{$size},
         .#{$abbrev}y#{$infix}-#{$size} {
-          #{$prop}-bottom: $length !important;
+          #{$prop}-left: $length !important;
         }
         .#{$abbrev}l#{$infix}-#{$size},
         .#{$abbrev}x#{$infix}-#{$size} {
-          #{$prop}-left: $length !important;
+          #{$prop}-top: $length !important;
         }
       }
     }
 
     // Some special margin utils
     .m#{$infix}-auto { margin: auto !important; }
-    .mt#{$infix}-auto,
+    .ml#{$infix}-auto,
     .my#{$infix}-auto {
       margin-top: auto !important;
     }
-    .mr#{$infix}-auto,
+    .mt#{$infix}-auto,
     .mx#{$infix}-auto {
       margin-right: auto !important;
     }
-    .mb#{$infix}-auto,
+    .mr#{$infix}-auto,
     .my#{$infix}-auto {
       margin-bottom: auto !important;
     }
-    .ml#{$infix}-auto,
+    .mb#{$infix}-auto,
     .mx#{$infix}-auto {
       margin-left: auto !important;
     }

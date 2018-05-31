@@ -8,8 +8,10 @@
   position: relative;
   display: flex;
   flex-wrap: wrap; // For form validation feedback
-  align-items: stretch;
+  align-items: center;
   width: 100%;
+  // margin-right: 1rem;
+  margin-left: 0;
 
   > .form-control,
   > .custom-select,
@@ -18,7 +20,7 @@
     flex: 1 1 auto;
     // Add width 1% and flex-basis auto to ensure that button will not wrap out
     // the column. Applies to IE Edge+ and Firefox. Chrome does not require this.
-    width: 1%;
+    height: 1%;
     margin-bottom: 0;
 
     // Bring the "active" form control to the top of surrounding elements
@@ -29,14 +31,14 @@
     + .form-control,
     + .custom-select,
     + .custom-file {
-      margin-left: -$input-border-width;
+      margin-top: -$input-border-width;
     }
   }
 
   > .form-control,
   > .custom-select {
-    &:not(:last-child) { @include border-right-radius(0); }
-    &:not(:first-child) { @include border-left-radius(0); }
+    &:not(:last-child) { @include border-bottom-radius(0); }
+    &:not(:first-child) { @include border-top-radius(0); }
   }
 
   // Custom file inputs have more complex markup, thus requiring different
@@ -75,12 +77,12 @@
   .btn + .input-group-text,
   .input-group-text + .input-group-text,
   .input-group-text + .btn {
-    margin-left: -$input-border-width;
+    margin-top: -$input-border-width;
   }
 }
 
-.input-group-prepend { margin-right: -$input-border-width; }
-.input-group-append { margin-left: -$input-border-width; }
+.input-group-prepend { margin-bottom: -$input-border-width; }
+.input-group-append { margin-top: -$input-border-width; }
 
 
 // Textual addons
@@ -90,8 +92,8 @@
 
 .input-group-text {
   display: flex;
-  align-items: center;
-  padding: $input-padding-y $input-padding-x;
+  // align-items: center;
+  padding: $input-padding-x $input-padding-y;
   margin-bottom: 0; // Allow use of <label> elements by overriding our default margin-bottom
   font-size: $font-size-base; // Match inputs
   font-weight: $font-weight-normal;
@@ -146,7 +148,7 @@
 .input-group > .input-group-append:not(:last-child) > .input-group-text,
 .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
 .input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
-  @include border-right-radius(0);
+  @include border-bottom-radius(0);
 }
 
 .input-group > .input-group-append > .btn,
@@ -155,5 +157,5 @@
 .input-group > .input-group-prepend:not(:first-child) > .input-group-text,
 .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
 .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
-  @include border-left-radius(0);
+  @include border-top-radius(0);
 }

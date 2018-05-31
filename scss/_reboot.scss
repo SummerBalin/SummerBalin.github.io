@@ -309,7 +309,7 @@ th {
 label {
   // Allow labels to use `margin` for spacing.
   display: inline-block;
-  margin-bottom: .5rem;
+  margin-right: .5rem;
 }
 
 // Remove the default `border-radius` that macOS Chrome adds.
@@ -390,7 +390,7 @@ input[type="month"] {
 textarea {
   overflow: auto; // Remove the default vertical scrollbar in IE.
   // Textareas should really only resize vertically so they don't break their (horizontal) containers.
-  resize: vertical;
+  // resize: horizontal;
 }
 
 fieldset {

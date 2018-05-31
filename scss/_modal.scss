@@ -27,8 +27,8 @@
   // See also https://github.com/twbs/bootstrap/issues/17695
 
   .modal-open & {
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 }
 
@@ -61,8 +61,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%; // Ensure `.modal-content` extends the full width of the parent `.modal-dialog`
+  height: 100%; // Ensure `.modal-content` extends the full width of the parent `.modal-dialog`
   // counteract the pointer-events: none; in the .modal-dialog
+  margin: 0 auto;
   pointer-events: auto;
   background-color: $modal-content-bg;
   background-clip: padding-box;
@@ -71,6 +72,7 @@
   @include box-shadow($modal-content-box-shadow-xs);
   // Remove focus outline from opened modal
   outline: 0;
+  writing-mode: vertical-lr;
 }
 
 // Modal background
@@ -92,16 +94,17 @@
 // Top section of the modal w/ title and dismiss
 .modal-header {
   display: flex;
-  align-items: flex-start; // so the close btn always stays on the upper right corner
-  justify-content: space-between; // Put modal header elements (title and dismiss) on opposite ends
+  // align-items: flex-start; // so the close btn always stays on the upper right corner
+  // justify-content: flex-start; // so the close btn always stays on the upper right corner
+  // justify-content: space-between; // Put modal header elements (title and dismiss) on opposite ends
   padding: $modal-header-padding;
-  border-bottom: $modal-header-border-width solid $modal-header-border-color;
-  @include border-top-radius($border-radius-lg);
+  border-right: $modal-header-border-width solid $modal-header-border-color;
+  @include border-left-radius($border-radius-lg);
 
   .close {
     padding: $modal-header-padding;
     // auto on the left force icon to the right even when there is no .modal-title
-    margin: (-$modal-header-padding) (-$modal-header-padding) (-$modal-header-padding) auto;
+    margin: auto (-$modal-header-padding) (-$modal-header-padding) (-$modal-header-padding);
   }
 }
 
@@ -127,11 +130,11 @@
   align-items: center; // vertically center
   justify-content: flex-end; // Right align buttons with flex property because text-align doesn't work on flex items
   padding: $modal-inner-padding;
-  border-top: $modal-footer-border-width solid $modal-footer-border-color;
+  border-left: $modal-footer-border-width solid $modal-footer-border-color;
 
   // Easily place margin between footer elements
-  > :not(:first-child) { margin-left: .25rem; }
-  > :not(:last-child) { margin-right: .25rem; }
+  > :not(:first-child) { margin-top: .25rem; }
+  > :not(:last-child) { margin-bottom: .25rem; }
 }
 
 // Measure scrollbar width for padding body during modal show/hide
@@ -147,7 +150,8 @@
 @include media-breakpoint-up(sm) {
   // Automatically set modal's width for larger viewports
   .modal-dialog {
-    max-width: $modal-md;
+    // max-height: $modal-md;
+    width: 100%;
     margin: $modal-dialog-margin-y-sm-up auto;
   }
 
